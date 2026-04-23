@@ -26,6 +26,12 @@ export default function App() {
     setEnteredGoalText('');
   }
 
+  function deleteGoalHandler(id) {
+    setCourseGoals((currentCourseGoals) => {
+      return currentCourseGoals.filter((goal) => goal.id !== id);
+    });
+  }
+
   return (
     <>
       <StatusBar style="light" />
@@ -39,7 +45,7 @@ export default function App() {
         <FlatList
             data={courseGoals}
             renderItem={({ item }) => (
-              <GoalItem text={item.text} />
+              <GoalItem text={item.text} onDelete={deleteGoalHandler} />
             )}
             keyExtractor={(item) => item.id}
             alwaysBounceVertical={true}
