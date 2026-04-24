@@ -45,7 +45,10 @@ export default function App() {
         <FlatList
             data={courseGoals}
             renderItem={({ item }) => (
-              <GoalItem text={item.text} onDelete={deleteGoalHandler} />
+              <GoalItem 
+                text={item.text} 
+                id={item.id}
+                onDelete={deleteGoalHandler} />
             )}
             keyExtractor={(item) => item.id}
             alwaysBounceVertical={true}
